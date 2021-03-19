@@ -5,13 +5,13 @@ def load_and_predict(text):
     with gzip.open('trained_model.pkl.gz', 'rb') as f:
         model = joblib.load(f)
 
-    pred = model.predict(text)
-    print(pred)
-    if pred == 1:
+    pred = model.predict_proba(text)[0, 1]
+    pred = float(pred)
+    if (pred > 0.5):
         return 'Positive Sentiment'
     else:
         return 'Negative Sentiment'
     
 
 if __name__=='__main__':
-    load_and_predict(input('Enter your text:'))
+    print(load_and_predict(['this is worst movie',]))

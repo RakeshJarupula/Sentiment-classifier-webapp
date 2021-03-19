@@ -22,19 +22,18 @@ def predict():
     if request.method == 'GET':
         text = request.args.get('text')
     else:
-        text = request.form['text']
-    
-    with gzip.open('tfidf_transformer.pkl.gz', 'rb') as f:
-        tfidf = joblib.open(f)
+        text = [request.form['text'],]
     
     with gzip.open('trained_model.pkl.gz', 'rb') as f:
-        model = joblib.open(f)
-
-    xt = tfidf.transform(text)
-    proba = model.predict_proba([text])[0, 1]
+        model = joblib.load(f)
     
-    return 'Positive Sentiment with {}% confidance'.format(proba*100)
-
+    pred = model.predict_proba(text)[0, 1]
+    
+    if pred > 0.5:
+        return 'Positive Sentiment with {}% confidance'.format(pred*100)
+    else:
+        return 'Negative Sentiment with {}% confidance'.format((1-pred)*100)
+    
 
 if __name__ =='__main__':
     app.run(debug=True)
