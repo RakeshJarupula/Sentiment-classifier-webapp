@@ -1,1 +1,1 @@
-web: gunicorn app:Sentiment-classifier-webapp
+web: gunicorn app:app
