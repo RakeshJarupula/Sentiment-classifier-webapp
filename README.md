@@ -11,8 +11,8 @@ The skills and tools used are:
 When a client visits the application, it:
 
 1. gets the client's IP address.
-1. uses the IP address to look up their location.
-1. uses their location data to greet them with temperature of the city they are located in.
+2. uses the IP address to look up their location.
+3. uses their location data to greet them with temperature of the city they are located in.
 
 ## Prerequisites
 
@@ -23,8 +23,8 @@ All required Python packages can be found in the `requirements.txt` file. Additi
 You may want to run the app using Flask locally before deploying it to Heroku, especially if you have made any changes to the code. To run locally (with a Unix-like OS):
 
 1. clone the repository.
-1. in the repository, run `make deploy`.
-1. open the link provided in the command line.
+2. in the repository, run `make deploy`.
+3. open the link provided in the command line.
 
 If you are using Windows, you can:
 
@@ -33,14 +33,9 @@ If you are using Windows, you can:
         py -3 -m venv venv
         venv\Scripts\activate.bat
 
-1. `set FLASK_APP=wqu_app/app.py` in the command line.
-1. run `python -m flask run`.
-1. open the link in the command line.
-
-Alternatively, you can deploy using [Docker](https://www.docker.com/).
-
-1. `docker build -t wqu_app .`
-1. `docker run -d -p 5000:5000 wqu_app`
+2. `set FLASK_APP=wqu_app/app.py` in the command line.
+3. run `python -m flask run`.
+4. open the link in the command line.
 
 ## Deploying to Heroku
 
@@ -58,7 +53,7 @@ Make sure your app is ready to be deployed to Heroku by running Flask locally. T
 Since this is a short demonstration of what you can do using Python to create web applications, consider extensions to the project. Some ideas include:
 
 1. showing a plot of the forecast.
-1. using their location to display other location specific data.
+2. using their location to display other location specific data.
 
 ## Contributing to this project
 
