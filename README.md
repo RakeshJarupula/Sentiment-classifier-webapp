@@ -33,7 +33,7 @@ If you are using Windows, you can:
         py -3 -m venv venv
         venv\Scripts\activate.bat
 
-2. `set FLASK_APP=wqu_app/app.py` in the command line.
+2. `set FLASK_APP=app` in the command line.
 3. run `python -m flask run`.
 4. open the link in the command line.
 
