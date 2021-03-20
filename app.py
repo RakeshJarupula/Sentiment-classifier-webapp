@@ -22,7 +22,7 @@ def predict():
     if request.method == 'GET':
         text = request.args.get('text')
     else:
-        text = [request.form['text'],]
+        text = [request.form['text']]
     
     with gzip.open('trained_model.pkl.gz', 'rb') as f:
         model = joblib.load(f)
