@@ -24,7 +24,7 @@ def predict():
     else:
         text = [request.form['text']]
     
-    with gzip.open('trained_model.pkl.gz', 'rb') as f:
+    with gzip.open('./trained_model.pkl.gz', 'rb') as f:
         model = joblib.load(f)
     
     pred = model.predict_proba(text)[0, 1]
